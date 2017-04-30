@@ -1,0 +1,31 @@
+<div class="container">
+  <% include partials/header  %>
+<strong>  <p>Use the form to upload a file and the details about the name and size will be provided in the table below</p>
+</strong>
+  <form action="/" method="post" enctype='multipart/form-data'>
+    <div class="form-group">
+
+        <legend>Form to Upload</legend>
+        <p>
+          <input class="form-control-file" type="file" name='metadata'>
+        </p>
+        <input class='btn btn-success' type="submit">
+
+    </div>
+  </form>
+<hr>
+  <table class='table table-hover table-bordered'>
+    <tbody>
+      <tr>
+        <td>Name</td>
+      <td> <%= name %></td>
+    </tr>
+    <tr>
+      <td>Size (bytes)</td>
+      <td><%= size %></td>
+    </tr>
+    </tbody>
+  </table>
+  <% include partials/footer  %>
+
+</div>
