@@ -5,6 +5,7 @@ const PORT = process.env.PORT || 3000
 
 const app = express()
 app.set('view engine', 'ejs')
+app.use(express.static('public'))
 app.use(multer({dest: `./uploads/`}).single('metadata'))
 
 const upload = multer({dest: `uploads/`})
@@ -19,10 +20,9 @@ next()
 })
 .post((req, res)=>{
   let {originalname, size} = req.file
-  console.log(req.file)
   res.render('index', {
     name: originalname,
-    size
+    size: `${size} bytes`
   })
 
 })
